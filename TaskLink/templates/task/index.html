@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block rel %}
+<link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='tree.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class = "togel">
+<input type="checkbox" id="view-checkbox" onclick="view()">
+<label id="view-botton" for="view-checkbox">
+  <div id="knob"></div>
+  <div id="tree">&emsp;Tree<br/>&emsp;View</div>
+  <div id="table">&emsp;Table<br/>&emsp;View</div>
+</label>
+</div>
+
+<div id = "tree-view" class="tf-tree tf-custom">
+  {{html_tree|safe}}
+</div>
+
+<div id = "table-view">
+  {% for task in tasks %}
+    <article class="task">
+      <header>
+        <div>
+          <h1><a class = "title" href="{{ url_for('task.view', task_id=task['task_id']) }}">{{ task['name'] }}</a> {% if task['completed'] == 1 %} &#10003; {% endif %}
+            <a href="{{ url_for('task.update', task_id=task['task_id']) }}">
+              <img class = "edit" src = "{{ url_for('static', filename='edit-button.png') }}">
+            </a>
+          </h1>
+        </div>
+      </header>
+      <p class="body">{{ task['description'] }}</p>
+      <form action="{{ url_for('task.delete', task_id=task['task_id']) }}" method="post">
+        <button class = "delete" onclick="return confirm('Are you sure you want to delete this task?');"></button>
+      </form>
+    </article>
+    {% if not loop.last %}
+      <hr class="line">
+    {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}

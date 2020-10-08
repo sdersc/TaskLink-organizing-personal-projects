@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}New Task{% endblock %}
+{% endblock %}
+
+{% block content %}
+  <form class = "create-form" method="post">
+    <label class = "create_label" for="name">Name
+      <input name="name" id="name" value="{{ request.form['name'] }}" required>
+    </label>
+    <label class = "create_label" for="description">Description
+      <textarea name="description" id="description">{{ request.form['description'] }}</textarea>
+    </label>
+    <label class = "create_label" for="link">Dependence
+      <select name="start_name" id="start_name">
+        <option value="0">None</option>
+        {% for task in tasks %}
+        <option>{{task['name']}}</option>
+        {%endfor%}
+      </select>
+    </label>
+      <input type="submit" value="Save" id = "create_submit">
+  </form>
+{% endblock %}

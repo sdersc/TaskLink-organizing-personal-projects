@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}Register{% endblock %}
+{% endblock %}
+
+{% block content %}
+<form class = "sign-form" method="post">
+  <div class="segment">
+    <h1>Sign up</h1>
+  </div>
+  <label id = "sign-label">
+    <input name="username" id="username" placeholder="Username" required/>
+  </label>
+  <label>
+    <input name="password" id="password" type="password" placeholder="Password" required/>
+  </label>
+  <p id = "warning">Caps lock is ON!</p>
+  <div class="segment">
+    <button class="unit" type="button" onclick="toggle()"><img src = "{{ url_for('static', filename='eye.png') }}"></button>
+  </div>
+  <button class="purple" type="submit">Register</button>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+  var input = document.getElementById("password");
+  var text = document.getElementById("warning");
+  input.addEventListener("keyup", function(event) {
+
+    if (event.getModifierState("CapsLock")) {
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  });
+</script>
+{% endblock %}
