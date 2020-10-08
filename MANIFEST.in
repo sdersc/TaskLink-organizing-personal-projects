@@ -1,0 +1,4 @@
+include TaskLink/schema.sql
+graft TaskLink/static
+graft TaskLink/templates
+global-exclude *.pyc

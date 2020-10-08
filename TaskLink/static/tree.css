@@ -1,0 +1,31 @@
+/*
+tf-gap-sm: the space between nodes (small screen)
+tf-gap-lg: the space between nodes (large screen)
+tf-dashed-children: dashed connectors
+tf-dotted-children: dotted connectors
+*/
+.tf-tree {
+    text-align: center;
+    font-size: 15px;
+    overflow: auto;
+}
+
+.tf-custom .tf-nc {
+
+    min-width: 5em;
+    background-color: #8e4074;
+    border-color: #8e4074;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.tf-custom .tf-nc::before, .tf-custom .tf-nc::after {
+    border-left-color: #8e4074;
+    border-left-width: 2px;
+}
+
+.tf-custom li li::before {
+    border-top-color: #8e4074;
+    border-top-width: 2px;
+}
