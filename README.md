@@ -1,5 +1,5 @@
 # organizing-personal-projects
-A Flask website for organizing personal projects and tasks.
+TaskLink, a Flask website for organizing personal projects and tasks.
 
 How to install and use the website from your computer.
 
