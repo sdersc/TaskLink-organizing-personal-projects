@@ -1,7 +1,7 @@
 # organizing-personal-projects
-Flask website for organizing personal projects and tasks
+A Flask website for organizing personal projects and tasks.
 
-How to instal and use the website from your computer
+How to install and use the website from your computer.
 
 1. Extract the archive
 2. Open Command Prompt with administrator
